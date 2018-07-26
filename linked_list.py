@@ -94,6 +94,24 @@ class LinkedList():
       previous.next_node = node
       node.next_node = temp_node
 
+  def get(self, n):
+    if(self.head):
+      if (n == 0):
+        return self.head.data
+      else:
+        current = self.head.next_node
+        i = 1
+        while(current.next_node != None and i < n):
+          current = current.next_node
+          i += 1
+        if (i == n):
+          return current.data
+        else:
+          return None
+    else:
+      # empty list
+      return None
+
   # prints entire list
   def print_list(self):
     print_arr = []

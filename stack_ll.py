@@ -14,3 +14,5 @@ class Stack:
   def print_stack(self):
     return self.store.print_list()
   
+  def get(self, n):
+    return self.store.get(n)

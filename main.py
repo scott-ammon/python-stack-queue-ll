@@ -28,3 +28,5 @@ q.print_queue()
 print("\n Dequeue one...")
 q.dequeue()
 q.print_queue()
+
+print(s.get(1))
