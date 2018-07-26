@@ -51,6 +51,49 @@ class LinkedList():
     self.head = temp_node
     return True
 
+  # deletes specifc element that matches provided data
+  def delete(self, data):
+    if (self.head == None):
+      return False
+    current = self.head
+    if(current.data == data):
+      # need to delete the head node
+      temp_node = current.next_node
+      current.next_node = None
+      self.head = temp_node
+    else:
+      # need to keep looping to find the data
+      while (current.next_node != None):
+        previous = current
+        current = current.next_node
+        if (current.data == data):
+          temp_node = current.next_node
+          previous.next_node = temp_node
+          current.next_node = None
+          return True
+      return False
+
+  # insert element before index n, with provided data
+  def insert_before(self, n, data):
+    node = Node(data)
+    if(n == 0):
+      # insert before the head
+      temp_node = self.head
+      self.head = node
+      self.head.next_node = temp_node
+    else:
+      current = self.head
+      previous = None
+      for i in range(0, n):
+        previous = current
+        current = current.next_node
+        if (current == None):
+          previous.next_node = node
+          return True
+      temp_node = previous.next_node
+      previous.next_node = node
+      node.next_node = temp_node
+
   # prints entire list
   def print_list(self):
     print_arr = []
